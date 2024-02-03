@@ -18,22 +18,22 @@ variable "private_subnets" {
 }
 
 variable "vpc_region" {
-  type = string
+  type        = string
   description = "VPC region"
 }
 
 variable "deployment_name" {
-  type = string
+  type        = string
   description = "Deployment name - used as prefix/suffix for resource naming"
 }
 
 variable "security_group_ids" {
-  type = list
+  type        = list(any)
   description = "sg ids"
 }
 
 variable "security_group_names" {
-  type = list
+  type        = list(any)
   description = "sg group names"
 }
 
