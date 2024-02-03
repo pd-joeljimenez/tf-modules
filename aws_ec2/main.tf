@@ -3,32 +3,32 @@
 // -----------------------------
 
 variable "ami_filter" {
-  type = string
+  type        = string
   description = "AMI filter for AMI searching "
 }
 
 variable "instance_type" {
-  type = string
+  type        = string
   description = "EC2 instance type"
 }
 
 variable "deployment_name" {
-  type = string
+  type        = string
   description = "Deployment name - used as prefix/suffix for resource naming"
 }
 
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "VPC id"
 }
 
 variable "min_size" {
-  type = string
+  type        = string
   description = "ASG minimum # of instances"
 }
 
 variable "max_size" {
-  type = string
+  type        = string
   description = "ASG maximum # of instances"
 }
 
@@ -46,32 +46,32 @@ variable "private_subnets" {
 }
 
 variable "desired_capacity" {
-  type = string
+  type        = string
   description = "ASG desired ec instance capacity"
 }
 
 variable "private_subnet_ids" {
-  type = list(string)
+  type        = list(string)
   description = "Private subnet ids"
 }
 
 variable "public_subnet_ids" {
-  type = list(string)
+  type        = list(string)
   description = "Public subnet ids"
 }
 
 variable "linux_user_data" {
-  type = string
+  type        = string
   description = "Linux user data"
 }
 
 variable "security_group_ids" {
-  type = list
+  type        = list(any)
   description = "sg ids"
 }
 
 variable "security_group_names" {
-  type = list
+  type        = list(any)
   description = "sg group names"
 }
 
@@ -133,7 +133,7 @@ resource "aws_launch_template" "t" {
 
   network_interfaces {
     associate_public_ip_address = false
-    security_groups = [var.security_group_ids[1]]
+    security_groups             = [var.security_group_ids[1]]
   }
 
   tag_specifications {
